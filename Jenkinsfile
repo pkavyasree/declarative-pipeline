@@ -1,13 +1,17 @@
 pipeline {
-    agent any
 
-  stages {  
-  stage('Cheking Connection with remote server') {
-      agent { label 'remote-linux' }
-      steps{
-    sshCommand remote: remote, command: "ifconfig; whoami"
+    agent {
+        node {
+            label 'remote-linux'
+        }
+    }
+    stages {  
+	 
+       stage('Cheking Connection with remote server') {
+       steps{
+       sshCommand remote: remote, command: "ifconfig; whoami"
       }
   }
 
       }
-  }
+  } 
