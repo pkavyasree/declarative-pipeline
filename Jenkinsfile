@@ -9,7 +9,7 @@ pipeline {
 	 
        stage('Cheking Connection with remote server') {
        steps{
-       sshCommand remote: remote, command: "ifconfig; whoami"
+       sshCommand remote: remote-linux, command: "ifconfig; whoami"
       }
   }
 
